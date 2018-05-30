@@ -12,7 +12,7 @@ class VGG_Cifar10(nn.Module):
         super(VGG_Cifar10, self).__init__()
         self.infl_ratio=3;
         self.features = nn.Sequential(
-            BinarizeConv2d(3, 128*self.infl_ratio, kernel_size=3, stride=1, padding=1,
+            BinarizeConv2d(3*8, 128*self.infl_ratio, kernel_size=3, stride=1, padding=1,
                       bias=True),
             nn.BatchNorm2d(128*self.infl_ratio),
             nn.Hardtanh(inplace=True),

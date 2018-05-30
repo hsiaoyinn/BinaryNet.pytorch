@@ -19,7 +19,7 @@ def scale_crop(input_size, scale_size=None, normalize=__imagenet_stats):
     t_list = [
         transforms.CenterCrop(input_size),
         transforms.ToTensor(),
-        transforms.Normalize(**normalize),
+        # transforms.Normalize(**normalize),
     ]
     if scale_size != input_size:
         t_list = [transforms.Scale(scale_size)] + t_list
@@ -45,7 +45,7 @@ def pad_random_crop(input_size, scale_size=None, normalize=__imagenet_stats):
         transforms.RandomCrop(input_size, padding=padding),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
-        transforms.Normalize(**normalize),
+        # transforms.Normalize(**normalize),
     ])
 
 

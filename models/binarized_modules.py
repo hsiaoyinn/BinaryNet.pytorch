@@ -47,7 +47,7 @@ class SqrtHingeLossFunction(Function):
        input, target = self.saved_tensors
        output=self.margin-input.mul(target)
        output[output.le(0)]=0
-       import pdb; pdb.set_trace()
+       # import pdb; pdb.set_trace()
        grad_output.resize_as_(input).copy_(target).mul_(-2).mul_(output)
        grad_output.mul_(output.ne(0).float())
        grad_output.div_(input.numel())
@@ -91,8 +91,36 @@ class BinarizeConv2d(nn.Conv2d):
 
 
     def forward(self, input):
+        
+
         if input.size(1) != 3:
             input.data = Binarize(input.data)
+        # modified
+        else:
+            input.data = (input.data*255).byte()
+            # print("input size:")
+            # print(input.size())
+            # print("\n")
+            # print("input:")
+            # print(input)
+            # print("\n")
+            split_input = torch.zeros([input.size(0),input.size(1)*8,input.size(2),input.size(3)], dtype = torch.uint8)
+            for i in range(input.size(0)):
+                for j in range(input.size(1)):
+                    for m in range(input.size(2)):
+                        for n in range(input.size(3)):
+                            for l in range(8):
+                                split_input[i][j*8+l][m][n] = input.data[i][j][m][n] >> l & 1
+            # print("split input size:")
+            # print(split_input.size())
+            # print("\n")
+            # print("split input:")
+            # print(split_input)
+            # print("\n")
+            input.data = split_input.float().cuda()
+
+        # if input.size(1) != 3:
+        #     input.data = Binarize(input.data)
         if not hasattr(self.weight,'org'):
             self.weight.org=self.weight.data.clone()
         self.weight.data=Binarize(self.weight.org)

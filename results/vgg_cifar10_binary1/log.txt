@@ -1,0 +1,12 @@
+2018-05-30 21:03:52 - INFO - saving to ./results/vgg_cifar10_binary1
+2018-05-30 21:03:52 - DEBUG - run arguments: Namespace(batch_size=10, dataset='cifar10', epochs=100, evaluate=None, gpus='0', input_size=None, lr=0.1, model='vgg_cifar10_binary', model_config='', momentum=0.9, optimizer='SGD', print_freq=10, results_dir='./results', resume='', save='vgg_cifar10_binary1', start_epoch=0, type='torch.cuda.FloatTensor', weight_decay=0.0001, workers=8)
+2018-05-30 21:03:52 - INFO - creating model vgg_cifar10_binary
+2018-05-30 21:03:53 - INFO - created model with configuration: {'input_size': None, 'dataset': 'cifar10'}
+2018-05-30 21:03:53 - INFO - number of parameters: 36534026
+2018-05-30 21:03:56 - INFO - training regime: {0: {'optimizer': 'Adam', 'betas': (0.9, 0.999), 'lr': 0.005}, 40: {'lr': 0.001}, 80: {'lr': 0.0005}, 100: {'lr': 0.0001}, 120: {'lr': 5e-05}, 140: {'lr': 1e-05}}
+2018-05-30 21:03:56 - DEBUG - OPTIMIZER - setting method = Adam
+2018-05-30 21:03:56 - DEBUG - OPTIMIZER - setting lr = 0.005
+2018-05-30 21:03:56 - DEBUG - OPTIMIZER - setting betas = (0.9, 0.999)
+2018-05-30 21:04:07 - INFO - TRAINING - Epoch: [0][0/5000]	Time 11.006 (11.006)	Data 0.220 (0.220)	Loss 3.1854 (3.1854)	Prec@1 0.000 (0.000)	Prec@5 40.000 (40.000)
+2018-05-30 21:05:31 - INFO - TRAINING - Epoch: [0][10/5000]	Time 8.371 (8.623)	Data 0.000 (0.022)	Loss 2.5025 (2.6183)	Prec@1 20.000 (11.818)	Prec@5 60.000 (53.636)
+2018-05-30 21:06:55 - INFO - TRAINING - Epoch: [0][20/5000]	Time 8.360 (8.510)	Data 0.000 (0.013)	Loss 2.6819 (2.5285)	Prec@1 10.000 (11.905)	Prec@5 60.000 (59.048)

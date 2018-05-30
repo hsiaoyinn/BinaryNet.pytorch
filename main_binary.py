@@ -151,6 +151,7 @@ def main():
     model.type(args.type)
 
     val_data = get_dataset(args.dataset, 'val', transform['eval'])
+    # val_data = get_dataset(args.dataset, 'val') 
     val_loader = torch.utils.data.DataLoader(
         val_data,
         batch_size=args.batch_size, shuffle=False,
@@ -161,6 +162,7 @@ def main():
         return
 
     train_data = get_dataset(args.dataset, 'train', transform['train'])
+    # train_data = get_dataset(args.dataset, 'train')
     train_loader = torch.utils.data.DataLoader(
         train_data,
         batch_size=args.batch_size, shuffle=True,
@@ -227,6 +229,7 @@ def forward(data_loader, model, criterion, epoch=0, training=True, optimizer=Non
 
     end = time.time()
     for i, (inputs, target) in enumerate(data_loader):
+
         # measure data loading time
         data_time.update(time.time() - end)
         if args.gpus is not None:
