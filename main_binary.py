@@ -9,6 +9,7 @@ import torch.backends.cudnn as cudnn
 import torch.optim
 import torch.utils.data
 import models
+import numpy as np
 from torch.autograd import Variable
 from data import get_dataset
 from preprocess import get_transform
@@ -16,6 +17,7 @@ from utils import *
 from datetime import datetime
 from ast import literal_eval
 from torchvision.utils import save_image
+from imgtobin import slice_img
 
 
 model_names = sorted(name for name in models.__dict__
@@ -162,7 +164,30 @@ def main():
         return
 
     train_data = get_dataset(args.dataset, 'train', transform['train'])
-    # train_data = get_dataset(args.dataset, 'train')
+
+    # ######## modified
+    # for i, (inputs, target) in enumerate(train_data):
+    #     inputs = (inputs.data*255).byte()
+    #     inputs.numpy()
+
+    #     ch, x, y = inputs.shape
+    #     out_shape = (8, x, y)
+
+    #     out1 = np.unpackbits(inputs[0].reshape(x * y, 1), axis=1).T.reshape(out_shape)
+    #     out2 = np.unpackbits(inputs[1].reshape(x * y, 1), axis=1).T.reshape(out_shape)
+    #     out3 = np.unpackbits(inputs[2].reshape(x * y, 1), axis=1).T.reshape(out_shape)
+    #     per_input = np.concatenate([out1, out2, out3])
+    #     train_data[i] = (torch.from_numpy(per_input), train_data[i][1])
+
+    #     # img = slice_img(inputs)
+    #     # new_in.append(new_in)
+    
+    # # new_new_in = np.concatenate(new_in)
+    # #########
+    
+    import pdb
+    pdb.set_trace()
+
     train_loader = torch.utils.data.DataLoader(
         train_data,
         batch_size=args.batch_size, shuffle=True,
@@ -170,7 +195,6 @@ def main():
 
     optimizer = torch.optim.SGD(model.parameters(), lr=args.lr)
     logging.info('training regime: %s', regime)
-
 
     for epoch in range(args.start_epoch, args.epochs):
         optimizer = adjust_optimizer(optimizer, epoch, regime)

@@ -1,9 +1,0 @@
-epoch,train_loss,val_loss,train_error1,val_error1,train_error5,val_error5
-1,"tensor(2.0401, device='cuda:0')","tensor(1.8849, device='cuda:0')","tensor(75.7500, device='cuda:0')","tensor(70.7000, device='cuda:0')","tensor(22.3520, device='cuda:0')","tensor(14.8800, device='cuda:0')"
-2,"tensor(1.8158, device='cuda:0')","tensor(1.7432, device='cuda:0')","tensor(66.9160, device='cuda:0')","tensor(63.6800, device='cuda:0')","tensor(14.5800, device='cuda:0')","tensor(12.5900, device='cuda:0')"
-3,"tensor(1.6647, device='cuda:0')","tensor(1.5598, device='cuda:0')","tensor(60.8440, device='cuda:0')","tensor(57.0200, device='cuda:0')","tensor(11.0920, device='cuda:0')","tensor(8.8100, device='cuda:0')"
-4,"tensor(1.5406, device='cuda:0')","tensor(1.4875, device='cuda:0')","tensor(55.4580, device='cuda:0')","tensor(53.6800, device='cuda:0')","tensor(9.0280, device='cuda:0')","tensor(8.1900, device='cuda:0')"
-5,"tensor(1.4270, device='cuda:0')","tensor(1.4818, device='cuda:0')","tensor(50.9440, device='cuda:0')","tensor(53.3400, device='cuda:0')","tensor(7.3540, device='cuda:0')","tensor(8.1800, device='cuda:0')"
-6,"tensor(1.3232, device='cuda:0')","tensor(1.3083, device='cuda:0')","tensor(47.2360, device='cuda:0')","tensor(46.6200, device='cuda:0')","tensor(5.9380, device='cuda:0')","tensor(5.6800, device='cuda:0')"
-7,"tensor(1.2358, device='cuda:0')","tensor(1.2635, device='cuda:0')","tensor(43.6200, device='cuda:0')","tensor(45.0800, device='cuda:0')","tensor(5.1240, device='cuda:0')","tensor(5.2600, device='cuda:0')"
-8,"tensor(1.1576, device='cuda:0')","tensor(1.2046, device='cuda:0')","tensor(40.8300, device='cuda:0')","tensor(42.9300, device='cuda:0')","tensor(4.3960, device='cuda:0')","tensor(4.7700, device='cuda:0')"

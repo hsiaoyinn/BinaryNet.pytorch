@@ -1,6 +1,7 @@
 import os
 import torchvision.datasets as datasets
 import torchvision.transforms as transforms
+from my_dataset import MyDataset
 
 _DATASETS_MAIN_PATH = '/home/hsiaoyin/Datasets'
 _dataset_path = {
@@ -19,7 +20,12 @@ def get_dataset(name, split='train', transform=None,
                 target_transform=None, download=True):
     train = (split == 'train')
     if name == 'cifar10':
-        return datasets.CIFAR10(root=_dataset_path['cifar10'],
+        # return datasets.CIFAR10(root=_dataset_path['cifar10'],
+        #                         train=train,
+        #                         transform=transform,
+        #                         target_transform=target_transform,
+        #                         download=download)
+        return MyDataset(root=_dataset_path['cifar10'],
                                 train=train,
                                 transform=transform,
                                 target_transform=target_transform,
